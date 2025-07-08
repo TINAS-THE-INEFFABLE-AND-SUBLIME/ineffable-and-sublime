@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ineffable and Sublime | Home</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #fffaf6;
+      text-align: center;
+      padding: 30px;
+    }
+
+    nav {
+      margin: 20px 0;
+    }
+
+    a {
+      text-decoration: none;
+      margin: 0 10px;
+      color: #6b2c91;
+      font-weight: bold;
+    }
+
+    #typewriter {
+      font-size: 28px;
+      color: #3e0e61;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #quote {
+      font-style: italic;
+      color: #444;
+      margin-top: 40px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✨ Typewriter Title -->
+  <div id="typewriter"></div>
+
+  <!-- 🌸 Subheading -->
+  <p>A literary magazine where ink speaks what words cannot describe.</p>
+
+  <!-- 🔗 Navigation -->
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="team.html">Team</a> |
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <hr>
+
+  <!-- 🌙 Quote Section -->
+  <div id="quote">“Some feelings are too infinite for syllables.”</div>
+
+  <!-- 🌍 Footer -->
+  <footer>
+    &copy; 2025 Ineffable and Sublime. All ink reserved.
+  </footer>
+
+  <!-- 💡 JavaScript Section -->
+  <script>
+    // Typewriter effect
+    const text = "Welcome to Ineffable and Sublime";
+    const typewriterDiv = document.getElementById("typewriter");
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        typewriterDiv.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      } else {
+        // After typing, reveal the quote
+        document.getElementById("quote").style.opacity = 1;
+      }
+    }
+
+    typeWriter();
+  </script>
+
+</body>
+</html>
+    
