@@ -5,45 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Issues - Ineffable and Sublime</title>
   <link rel="stylesheet" href="style.css">
+  /* header bottom line */
+.site-header {
+  padding: 18px 0;
+  border-bottom: 1px solid #ccc; /* the missing line */
+}
+
+/* NAV list reset and layout */
+.nav-list {
+  list-style: none;        /* removes bullets */
+  margin: 0;               /* remove default spacing */
+  padding: 0;
+  display: flex;           /* put items in one row */
+  justify-content: center;
+  align-items: center;
+  gap: 18px;               /* space between items */
+}
+
+/* ensure list items don't behave like list markers */
+.nav-list li {
+  margin: 0;
+  padding: 0;
+}
+
+/* link styling */
+.nav-list li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #5a2b7a;
+  padding: 6px 8px;
+}
+
+/* divider between items (except after last) */
+.nav-list li:not(:last-child)::after {
+  content: "|";
+  margin-left: 10px;
+  color: #a99fc3;
+  font-weight: 400;
+}
+
+/* fallback in case some other CSS is stubborn */
+.nav-list { list-style: none !important; }
+
 </head>
 <body>
 
   <!-- Navigation -->
   <header>
-    <nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="issues.html">Issues</a></li>
-    nav ul {
-  list-style: none;       /* removes bullets */
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;              /* space between links */
-}
-
-nav ul li {
-  display: inline;        /* keep them in one line */
-}
-
-nav ul li a {
-  text-decoration: none;
-  font-weight: bold;
-  color: purple;
-}
-
-nav ul li:not(:last-child)::after {
-  content: "|";           /* adds divider */
-  margin-left: 10px;
-  color: gray;
-}
-
-  </ul>
-</nav>
+   <header class="site-header">
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="issues.html">Issues</a></li>
+    </ul>
+  </nav>
+</header>
 
   </header>
 
@@ -78,6 +97,7 @@ nav ul li:not(:last-child)::after {
 
 </body>
 </html>
+
 
 
 
