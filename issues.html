@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issues - Ineffable and Sublime</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="issues.html" class="active">Issues</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Issues Section -->
+  <main>
+    <section class="issues">
+      <h1>Our Issues</h1>
+      <p>Explore the past and upcoming issues here <em>Ineffable and Sublime</em>.</p>
+
+      <div class="issue-list">
+        <!-- Example issue card -->
+        <div class="issue-card">
+          <h2>Issue 1: </h2>
+          <p>September 2025</p>
+          <a href="issue1.html">Read Now</a>
+        </div>
+
+        <div class="issue-card">
+          <h2>Issue 2: </h2>
+          <p>October 2025</p>
+          <a href="issue2.html">Read Now</a>
+        </div>
+
+        <!-- Placeholder for future issues -->
+        <div class="issue-card">
+          <h2>Coming Soon</h2>
+          <p>Stay tuned for more issues...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
+.issues {
+  padding: 40px;
+  text-align: center;
+}
+
+.issue-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.issue-card {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  background: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.issue-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.issue-card h2 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.issue-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.issue-card a:hover {
+  background: #555;
+}
