@@ -17,6 +17,31 @@
     <li><a href="team.html">Team</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="issues.html">Issues</a></li>
+    nav ul {
+  list-style: none;       /* removes bullets */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;              /* space between links */
+}
+
+nav ul li {
+  display: inline;        /* keep them in one line */
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: purple;
+}
+
+nav ul li:not(:last-child)::after {
+  content: "|";           /* adds divider */
+  margin-left: 10px;
+  color: gray;
+}
+
   </ul>
 </nav>
 
@@ -53,5 +78,6 @@
 
 </body>
 </html>
+
 
 
