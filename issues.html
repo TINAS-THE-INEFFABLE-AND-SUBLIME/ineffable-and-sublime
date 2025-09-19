@@ -3,47 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magazine Website</title>
-  <style>
-    /* Navbar styling */
-    nav {
-      background-color: #222; /* dark background */
-      padding: 15px;
-    }
-
-    nav ul {
-      list-style-type: none; /* removes bullets */
-      margin: 0;
-      padding: 0;
-      display: flex; /* makes links appear in a row */
-      gap: 20px; /* spacing between links */
-      justify-content: center; /* centers the links */
-    }
-
-    nav ul li a {
-      text-decoration: none; /* removes underline */
-      color: white;
-      font-size: 18px;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #ff9800; /* highlight on hover */
-    }
-  </style>
+  <title>Issues - Ineffable and Sublime</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="issues.html">Issues</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
 
-  <h1>Welcome to Our Magazine ✨</h1>
+  <!-- Navigation -->
+  <header>
+    <nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="issues.html">Issues</a></li>
+  </ul>
+</nav>
+
+
+  </header>
+
+  <!-- Issues Section -->
+  <main>
+    <section class="issues">
+      <h1>Our Issues</h1>
+      <p>Explore the past and upcoming issues here <em>Ineffable and Sublime</em>.</p>
+<body>
+  <h1>Our Issues</h1>
+
+  <div class="issue-gallery">
+    <div class="issue">
+      <img src="covers/issue1-cover.jpg" alt="Issue 1 Cover">
+      <h3>Issue 1: Dawn of Words</h3>
+      <a href="issue1.html">Read Online</a>
+    </div>
+
+    <div class="issue">
+      <img src="covers/issue2-cover.jpg" alt="Issue 2 Cover">
+      <h3>Issue 2: Whispers of Ink</h3>
+      <a href="issue2.html">Read Online</a>
+    </div>
+  </div>
+</body>
+
+    </section>
+  </main>
+
 </body>
 </html>
-
