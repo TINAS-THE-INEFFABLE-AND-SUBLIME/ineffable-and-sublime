@@ -5,13 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Issue 1 - </title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #fdf5e6; /* cream */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 80%;
+      height: 600px;
+      border: none;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #e7d2be; /* dark purple */
+      padding: 15px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    footer ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    footer ul li {
+      display: inline;
+    }
+    footer ul li a {
+      color: rgb(63, 8, 71);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>Issue 1:</h1>
-  <p>Welcome to the very first issue of <strong>Ineffable and Sublime</strong>! Dive into poetry, stories, and art curated by our team.</p>
+  <div class="content">
+    <h1>Issue 1: </h1>
+    <p>Welcome to the first issue of <strong>Ineffable and Sublime</strong>!</p>
 
-  <!-- Option 1: Embed PDF -->
-  <iframe src="" width="100%" height="600px"></iframe>
+    <!-- Embed PDF version of the issue -->
+    <iframe src=""></iframe>
 
+    <!-- Back button -->
+    <p><a href="issues.html" style="color:#4b0082; font-weight:bold;">← Back to Issues</a></p>
+  </div>
+
+  <!-- Footer Navbar -->
+  <footer>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="issues.html">Issues</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
