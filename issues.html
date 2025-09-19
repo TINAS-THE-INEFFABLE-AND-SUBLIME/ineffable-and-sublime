@@ -14,7 +14,7 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      min-height: 100vh; /* ensures footer sticks */
     }
 
     /* Issues gallery */
@@ -24,7 +24,7 @@
       gap: 20px;
       margin: 20px auto;
       justify-content: center;
-      flex: 1;
+      flex: 1; /* pushes footer down */
     }
     .issue {
       text-align: center;
@@ -32,5 +32,84 @@
       border: 1px solid #ddd;
       border-radius: 10px;
       padding: 10px;
-      box-shadow: 2px
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      background: white;
+    }
+    .issue img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .issue h3 {
+      margin: 10px 0;
+    }
+    .issue a {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 6px 10px;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .issue a:hover {
+      background: #555;
+    }
 
+    /* Footer navbar */
+    footer {
+      background-color: #4b0082; /* dark purple */
+      padding: 15px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    footer ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    footer ul li {
+      display: inline;
+    }
+    footer ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center; padding:20px;">Our Issues</h1>
+
+  <div class="issue-gallery">
+    <div class="issue">
+      <img src="covers/issue1-cover.jpg" alt="Issue 1 Cover">
+      <h3>Issue 1: Dawn of Words</h3>
+      <a href="issue1.html">Read Online</a>
+    </div>
+
+    <div class="issue">
+      <img src="covers/issue2-cover.jpg" alt="Issue 2 Cover">
+      <h3>Issue 2: Whispers of Ink</h3>
+      <a href="issue2.html">Read Online</a>
+    </div>
+  </div>
+
+  <!-- Footer Navbar -->
+  <footer>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="teams.html">Teams</a></li>
+      <li><a href="issues.html">Issues</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
