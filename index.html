@@ -45,128 +45,124 @@
 </head>
 <body>
 
-<!-- Login/Signup Section -->
-<section id="login-section" style="padding:50px 0; background:#fdf6f0;">
+<!-- Login/Signup Button -->
+<section style="text-align:center; padding:50px 0; background:#fdf6f0;">
+  <button id="openModalBtn" style="
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#fda085;
+    color:#fff;
+    cursor:pointer;
+    transition:0.3s;
+  ">Login / Sign Up</button>
+</section>
+
+<!-- Modal -->
+<div id="loginModal" style="
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+">
   <div style="
-    max-width:400px;
-    margin:auto;
     background:#fff;
     padding:2rem;
     border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    text-align:center;
-    z-index:10;
+    max-width:400px;
+    width:90%;
     position:relative;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    text-align:center;
   ">
+    <span id="closeModal" style="
+      position:absolute;
+      top:10px;
+      right:15px;
+      font-size:20px;
+      cursor:pointer;
+      color:#333;
+    ">&times;</span>
+    
     <h2 id="form-title" style="margin-bottom:1rem; color:#333;">Login</h2>
     
-    <!-- Login Form -->
     <form id="login-form">
-      <input type="email" placeholder="Email" required
-        style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-      <input type="password" placeholder="Password" required
-        style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-      <button type="submit" style="
-        width:100%;
-        padding:12px;
-        background:#fda085;
-        color:#fff;
-        font-size:16px;
-        border:none;
-        border-radius:8px;
-        cursor:pointer;
-        margin-top:10px;
-        transition:0.3s;
-      ">Login</button>
+      <input type="email" placeholder="Email" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+      <input type="password" placeholder="Password" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+      <button type="submit" style="width:100%; padding:12px; background:#fda085; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login</button>
     </form>
-
-    <!-- Social Login -->
-    <button style="
-      width:100%;
-      padding:12px;
-      background:#db4437;
-      color:#fff;
-      font-size:16px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      margin-top:10px;
-      transition:0.3s;
-    ">Login with Google</button>
-
-    <!-- Toggle Link -->
-    <span class="toggle-link" onclick="toggleForm()" style="
-      display:block;
-      text-align:center;
-      margin-top:15px;
-      color:#555;
-      cursor:pointer;
-    ">Don’t have an account? Sign up</span>
+    
+    <button style="width:100%; padding:12px; background:#db4437; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login with Google</button>
+    
+    <span class="toggle-link" onclick="toggleForm()" style="display:block; margin-top:15px; color:#555; cursor:pointer;">Don’t have an account? Sign up</span>
   </div>
-</section>
+</div>
 
 <script>
-let showingLogin = true;
+const openBtn = document.getElementById("openModalBtn");
+const modal = document.getElementById("loginModal");
+const closeBtn = document.getElementById("closeModal");
 
+openBtn.onclick = () => modal.style.display = "flex";
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
+
+let showingLogin = true;
 function toggleForm() {
-  const section = document.getElementById("login-section");
-  if (showingLogin) {
-    section.innerHTML = `
-      <div style="
-        max-width:400px;
-        margin:auto;
-        background:#fff;
-        padding:2rem;
-        border-radius:15px;
-        box-shadow:0 8px 20px rgba(0,0,0,0.15);
-        text-align:center;
-        position:relative;
-        z-index:10;
-      ">
-        <h2 style="margin-bottom:1rem; color:#333;">Sign Up</h2>
-        <form id="signup-form">
-          <input type="text" placeholder="Full Name" required
-            style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-          <input type="email" placeholder="Email" required
-            style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-          <input type="password" placeholder="Password" required
-            style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-          <button type="submit" style="
-            width:100%;
-            padding:12px;
-            background:#fda085;
-            color:#fff;
-            font-size:16px;
-            border:none;
-            border-radius:8px;
-            cursor:pointer;
-            margin-top:10px;
-            transition:0.3s;
-          ">Sign Up</button>
-        </form>
-        <button style="
-          width:100%;
-          padding:12px;
-          background:#db4437;
-          color:#fff;
-          font-size:16px;
-          border:none;
-          border-radius:8px;
-          cursor:pointer;
-          margin-top:10px;
-          transition:0.3s;
-        ">Sign up with Google</button>
-        <span onclick="location.reload()" style="
-          display:block;
-          text-align:center;
-          margin-top:15px;
-          color:#555;
-          cursor:pointer;
-        ">Already have an account? Login</span>
-      </div>
+  const modalContent = modal.querySelector("div");
+  if(showingLogin) {
+    modalContent.innerHTML = `
+      <span id="closeModal" style="
+        position:absolute;
+        top:10px;
+        right:15px;
+        font-size:20px;
+        cursor:pointer;
+        color:#333;
+      ">&times;</span>
+      <h2 style="margin-bottom:1rem; color:#333;">Sign Up</h2>
+      <form id="signup-form">
+        <input type="text" placeholder="Full Name" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+        <input type="email" placeholder="Email" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+        <input type="password" placeholder="Password" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+        <button type="submit" style="width:100%; padding:12px; background:#fda085; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Sign Up</button>
+      </form>
+      <button style="width:100%; padding:12px; background:#db4437; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Sign up with Google</button>
+      <span onclick="toggleBack()" style="display:block; margin-top:15px; color:#555; cursor:pointer;">Already have an account? Login</span>
     `;
+    modalContent.querySelector("#closeModal").onclick = () => modal.style.display = "none";
     showingLogin = false;
   }
+}
+
+function toggleBack() {
+  showingLogin = true;
+  modal.querySelector("div").innerHTML = `
+    <span id="closeModal" style="
+      position:absolute;
+      top:10px;
+      right:15px;
+      font-size:20px;
+      cursor:pointer;
+      color:#333;
+    ">&times;</span>
+    <h2 id="form-title" style="margin-bottom:1rem; color:#333;">Login</h2>
+    <form id="login-form">
+      <input type="email" placeholder="Email" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+      <input type="password" placeholder="Password" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
+      <button type="submit" style="width:100%; padding:12px; background:#fda085; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login</button>
+    </form>
+    <button style="width:100%; padding:12px; background:#db4437; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login with Google</button>
+    <span class="toggle-link" onclick="toggleForm()" style="display:block; margin-top:15px; color:#555; cursor:pointer;">Don’t have an account? Sign up</span>
+  `;
+  modal.querySelector("#closeModal").onclick = () => modal.style.display = "none";
 }
 </script>
 
