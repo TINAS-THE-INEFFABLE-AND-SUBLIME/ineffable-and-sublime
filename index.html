@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ineffable and Sublime | Home</title>
   <style>
     body {
@@ -8,6 +10,7 @@
       background-color: #fffaf6;
       text-align: center;
       padding: 30px;
+      margin: 0;
     }
 
     nav {
@@ -41,131 +44,88 @@
       font-size: 14px;
       color: #aaa;
     }
+
+    /* Login Modal Styles */
+    #loginModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: flex;
+    }
+
+    #loginModal .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    #loginModal input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    #loginModal button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #loginModal .login-btn { background: #fda085; color: #fff; }
+    #loginModal .google-btn { background: #db4437; color: #fff; }
+    #loginModal .close { position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer; color: #333; }
+    #loginModal .toggle-link { display: block; margin-top: 15px; color: #555; cursor: pointer; }
   </style>
 </head>
 <body>
 
-<!-- Login/Signup Button -->
-<section style="text-align:center; padding:50px 0; background:#fdf6f0;">
-  <button id="openModalBtn" style="
-    padding:15px 30px;
-    font-size:18px;
-    border:none;
-    border-radius:10px;
-    background:#800080;
-    color:#FFFFFF;
-    cursor:pointer;
-    transition:0.3s;
-  ">Login / Sign Up</button>
-</section>
-
-<!-- Modal -->
-<div id="loginModal" style="
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index:1000;
-">
-  <div style="
-    background:#fff;
-    padding:2rem;
-    border-radius:15px;
-    max-width:400px;
-    width:90%;
-    position:relative;
-    box-shadow:0 8px 25px rgba(0,0,0,0.2);
-    text-align:center;
-  ">
-    <span id="closeModal" style="
-      position:absolute;
-      top:10px;
-      right:15px;
-      font-size:20px;
+  <!-- Login/Signup Button -->
+  <section style="text-align:center; padding:50px 0; background:#fdf6f0;">
+    <button id="openModalBtn" style="
+      padding:15px 30px;
+      font-size:18px;
+      border:none;
+      border-radius:10px;
+      background:#800080;
+      color:#FFFFFF;
       cursor:pointer;
-      color:#333;
-    ">&times;</span>
-    
-    <h2 id="form-title" style="margin-bottom:1rem; color:#333;">Login</h2>
-    
-    <form id="login-form">
-      <input type="email" placeholder="Email" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-      <input type="password" placeholder="Password" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-      <button type="submit" style="width:100%; padding:12px; background:#fda085; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login</button>
-    </form>
-    
-    <button style="width:100%; padding:12px; background:#db4437; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login with Google</button>
-    
-    <span class="toggle-link" onclick="toggleForm()" style="display:block; margin-top:15px; color:#555; cursor:pointer;">Don’t have an account? Sign up</span>
-  </div>
-</div>
+      transition:0.3s;
+    ">Login / Sign Up</button>
+  </section>
 
-<script>
-const openBtn = document.getElementById("openModalBtn");
-const modal = document.getElementById("loginModal");
-const closeBtn = document.getElementById("closeModal");
-
-openBtn.onclick = () => modal.style.display = "flex";
-closeBtn.onclick = () => modal.style.display = "none";
-window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
-
-let showingLogin = true;
-function toggleForm() {
-  const modalContent = modal.querySelector("div");
-  if(showingLogin) {
-    modalContent.innerHTML = `
-      <span id="closeModal" style="
-        position:absolute;
-        top:10px;
-        right:15px;
-        font-size:20px;
-        cursor:pointer;
-        color:#333;
-      ">&times;</span>
-      <h2 style="margin-bottom:1rem; color:#333;">Sign Up</h2>
-      <form id="signup-form">
-        <input type="text" placeholder="Full Name" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-        <input type="email" placeholder="Email" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-        <input type="password" placeholder="Password" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-        <button type="submit" style="width:100%; padding:12px; background:#fda085; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Sign Up</button>
+  <!-- Login/Signup Modal -->
+  <div id="loginModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="form-title">Login</h2>
+      <form id="login-form">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="login-btn">Login</button>
       </form>
-      <button style="width:100%; padding:12px; background:#db4437; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Sign up with Google</button>
-      <span onclick="toggleBack()" style="display:block; margin-top:15px; color:#555; cursor:pointer;">Already have an account? Login</span>
-    `;
-    modalContent.querySelector("#closeModal").onclick = () => modal.style.display = "none";
-    showingLogin = false;
-  }
-}
-
-function toggleBack() {
-  showingLogin = true;
-  modal.querySelector("div").innerHTML = `
-    <span id="closeModal" style="
-      position:absolute;
-      top:10px;
-      right:15px;
-      font-size:20px;
-      cursor:pointer;
-      color:#333;
-    ">&times;</span>
-    <h2 id="form-title" style="margin-bottom:1rem; color:#333;">Login</h2>
-    <form id="login-form">
-      <input type="email" placeholder="Email" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-      <input type="password" placeholder="Password" required style="width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; font-size:14px;">
-      <button type="submit" style="width:100%; padding:12px; background:#fda085; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login</button>
-    </form>
-    <button style="width:100%; padding:12px; background:#db4437; color:#fff; font-size:16px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">Login with Google</button>
-    <span class="toggle-link" onclick="toggleForm()" style="display:block; margin-top:15px; color:#555; cursor:pointer;">Don’t have an account? Sign up</span>
-  `;
-  modal.querySelector("#closeModal").onclick = () => modal.style.display = "none";
-}
-</script>
+      <button class="google-btn">Login with Google</button>
+      <span class="toggle-link" onclick="toggleForm()">Don’t have an account? Sign up</span>
+    </div>
+  </div>
 
   <!-- ✨ Typewriter Title -->
   <div id="typewriter"></div>
@@ -178,9 +138,8 @@ function toggleBack() {
     <a href="index.html">Home</a> |
     <a href="about.html">About</a> |
     <a href="team.html">Team</a> |
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Contact</a> |
     <a href="issues.html">Issues</a>
-
   </nav>
 
   <hr>
@@ -193,8 +152,55 @@ function toggleBack() {
     &copy; 2025 Ineffable and Sublime. All ink reserved.
   </footer>
 
-  <!-- 💡 JavaScript Section -->
+  <!-- 💡 JavaScript -->
   <script>
+    // Modal functionality
+    const openBtn = document.getElementById("openModalBtn");
+    const modal = document.getElementById("loginModal");
+    const closeBtn = modal.querySelector(".close");
+    let showingLogin = true;
+
+    openBtn.onclick = () => modal.style.display = "flex";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
+
+    function toggleForm() {
+      const modalContent = modal.querySelector(".modal-content");
+      if(showingLogin) {
+        modalContent.innerHTML = `
+          <span class="close">&times;</span>
+          <h2>Sign Up</h2>
+          <form id="signup-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Sign Up</button>
+          </form>
+          <button class="google-btn">Sign up with Google</button>
+          <span class="toggle-link" onclick="toggleBack()">Already have an account? Login</span>
+        `;
+        modalContent.querySelector(".close").onclick = () => modal.style.display = "none";
+        showingLogin = false;
+      }
+    }
+
+    function toggleBack() {
+      const modalContent = modal.querySelector(".modal-content");
+      modalContent.innerHTML = `
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form">
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+        <button class="google-btn">Login with Google</button>
+        <span class="toggle-link" onclick="toggleForm()">Don’t have an account? Sign up</span>
+      `;
+      modalContent.querySelector(".close").onclick = () => modal.style.display = "none";
+      showingLogin = true;
+    }
+
     // Typewriter effect
     const text = "Welcome to Ineffable and Sublime";
     const typewriterDiv = document.getElementById("typewriter");
@@ -206,7 +212,6 @@ function toggleBack() {
         i++;
         setTimeout(typeWriter, 100);
       } else {
-        // After typing, reveal the quote
         document.getElementById("quote").style.opacity = 1;
       }
     }
@@ -216,4 +221,4 @@ function toggleBack() {
 
 </body>
 </html>
-    
+
